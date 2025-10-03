@@ -21,28 +21,26 @@
         :root {
             --primary-blue: #007AFF;
             --secondary-blue: #5AC8FA;
-            --accent-purple: #AF52DE;
-            --glass-bg: rgba(255, 255, 255, 0.15);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --glass-bg-strong: rgba(255, 255, 255, 0.25);
-            --glass-border-strong: rgba(255, 255, 255, 0.2);
+            --accent-gray: #8E8E93;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --glass-bg-strong: rgba(255, 255, 255, 0.95);
+            --glass-border-strong: rgba(0, 0, 0, 0.12);
             --text-primary: #1D1D1F;
             --text-secondary: #86868B;
-            --surface: rgba(255, 255, 255, 0.7);
-            --surface-elevated: rgba(255, 255, 255, 0.85);
-            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-            --glass-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.18);
+            --text-tertiary: #C7C7CC;
+            --surface: rgba(255, 255, 255, 0.9);
+            --surface-elevated: rgba(255, 255, 255, 0.98);
+            --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --glass-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --border-light: rgba(0, 0, 0, 0.06);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%),
-                linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #F5F5F7;
             min-height: 100vh;
             font-size: 16px;
             position: relative;
@@ -56,8 +54,8 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 20%, rgba(0, 122, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 122, 255, 0.02) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
         }
@@ -70,52 +68,41 @@
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            color: white;
+            margin-bottom: 60px;
+            color: var(--text-primary);
         }
 
         .header h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
         }
 
         .header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
+            font-size: 1.4rem;
+            color: var(--text-secondary);
             font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(40px) saturate(180%);
-            -webkit-backdrop-filter: blur(40px) saturate(180%);
-            border-radius: 28px;
-            padding: 36px;
-            margin-bottom: 28px;
+            background: var(--surface-elevated);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 32px;
             box-shadow: var(--glass-shadow);
-            border: 1px solid var(--glass-border);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
         }
 
         .card:hover {
-            transform: translateY(-4px) scale(1.01);
+            transform: translateY(-2px);
             box-shadow: var(--glass-shadow-hover);
-            background: var(--glass-bg-strong);
-            border-color: var(--glass-border-strong);
+            border-color: var(--glass-border);
         }
 
         .card h2 {
@@ -167,25 +154,30 @@
         }
 
         .content-type {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
-            color: white;
-            padding: 24px;
+            background: var(--surface);
+            color: var(--text-primary);
+            padding: 28px;
             border-radius: 16px;
             text-align: center;
             font-weight: 500;
-            transition: transform 0.2s ease;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .content-type:hover {
             transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border-color: var(--glass-border);
         }
 
         .troubleshooting {
-            background: rgba(255, 149, 0, 0.1);
-            border-left: 4px solid #FF9500;
-            padding: 20px;
-            margin: 20px 0;
+            background: rgba(0, 122, 255, 0.05);
+            border-left: 4px solid var(--primary-blue);
+            padding: 24px;
+            margin: 24px 0;
             border-radius: 12px;
+            border: 1px solid var(--border-light);
         }
 
         .troubleshooting h4 {
@@ -202,31 +194,19 @@
         }
 
         .contact-method {
-            background: var(--glass-bg);
-            backdrop-filter: blur(30px) saturate(150%);
-            -webkit-backdrop-filter: blur(30px) saturate(150%);
-            padding: 28px;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-method::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: var(--surface);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .contact-method:hover {
-            background: var(--glass-bg-strong);
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            background: var(--surface-elevated);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border-color: var(--glass-border);
         }
 
         .contact-method h3 {
@@ -248,30 +228,32 @@
         }
 
         .support-tips {
-            background: rgba(52, 199, 89, 0.1);
-            border: 1px solid rgba(52, 199, 89, 0.2);
+            background: rgba(0, 122, 255, 0.05);
+            border: 1px solid var(--border-light);
             border-radius: 16px;
             padding: 24px;
             margin-top: 24px;
         }
 
         .support-tips h3 {
-            color: #34C759;
+            color: var(--primary-blue);
             margin-bottom: 16px;
             font-weight: 600;
         }
 
         .contact-info {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
-            color: white;
+            background: var(--surface-elevated);
+            color: var(--text-primary);
             text-align: center;
             padding: 40px;
-            border-radius: 24px;
+            border-radius: 20px;
             margin-top: 32px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--glass-shadow);
         }
 
         .contact-info h2 {
-            color: white;
+            color: var(--text-primary);
             margin-bottom: 16px;
             font-size: 1.8rem;
             font-weight: 600;
@@ -279,44 +261,32 @@
 
         .contact-info p {
             font-size: 1.1rem;
-            opacity: 0.95;
+            color: var(--text-secondary);
             line-height: 1.6;
         }
 
         .app-icon {
             width: 100px;
             height: 100px;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+            background: var(--surface-elevated);
             border-radius: 24px;
-            margin: 0 auto 24px;
+            margin: 0 auto 32px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.5rem;
-            color: white;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            color: var(--primary-blue);
+            box-shadow: var(--glass-shadow);
+            border: 1px solid var(--border-light);
         }
 
         .api-key-steps {
-            background: var(--glass-bg);
-            backdrop-filter: blur(35px) saturate(160%);
-            -webkit-backdrop-filter: blur(35px) saturate(160%);
-            border-radius: 20px;
-            padding: 28px;
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 32px;
             margin: 24px 0;
-            border: 1px solid var(--glass-border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .api-key-steps::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            border: 1px solid var(--border-light);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .api-key-steps h3 {
@@ -329,35 +299,22 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 20px;
-            padding: 20px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px) saturate(140%);
-            -webkit-backdrop-filter: blur(25px) saturate(140%);
-            border-radius: 16px;
-            border: 1px solid var(--glass-border);
+            padding: 24px;
+            background: var(--surface-elevated);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .step::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
         }
 
         .step:hover {
             transform: translateY(-1px);
-            background: var(--glass-bg-strong);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-color: var(--glass-border);
         }
 
         .step-number {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+            background: var(--primary-blue);
             color: white;
             width: 36px;
             height: 36px;
@@ -368,13 +325,13 @@
             font-weight: 600;
             margin-right: 20px;
             flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.2);
             transition: all 0.3s ease;
         }
 
         .step:hover .step-number {
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(0, 122, 255, 0.4);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
         }
 
         .step-content {
@@ -393,25 +350,12 @@
         }
 
         .highlight-box {
-            background: var(--glass-bg);
-            backdrop-filter: blur(30px) saturate(150%);
-            -webkit-backdrop-filter: blur(30px) saturate(150%);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
+            background: var(--surface);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
             padding: 24px;
             margin: 20px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .highlight-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(0, 122, 255, 0.3), transparent);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .highlight-box h4 {
@@ -471,13 +415,13 @@
             <p>AI-Powered Content Generation for Real Estate Professionals</p>
         </div>
 
-        <div class="card" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%); color: white; border: none;">
-            <h2 style="color: white; text-align: center;">📞 Need Support?</h2>
-            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 20px;">Having issues with WriteAgent? We're here to help!</p>
+        <div class="card" style="background: var(--surface-elevated); border: 2px solid var(--primary-blue);">
+            <h2 style="color: var(--text-primary); text-align: center;">📞 Need Support?</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 20px; color: var(--text-secondary);">Having issues with WriteAgent? We're here to help!</p>
             <div style="text-align: center;">
-                <a href="mailto:thisgeekrh@gmail.com" style="color: white; background: rgba(255,255,255,0.2); padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; margin: 10px;">📧 Contact Support</a>
+                <a href="mailto:thisgeekrh@gmail.com" style="color: white; background: var(--primary-blue); padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; margin: 10px; transition: all 0.3s ease;">📧 Contact Support</a>
             </div>
-            <p style="text-align: center; font-size: 0.9rem; opacity: 0.9; margin-top: 15px;">Email: thisgeekrh@gmail.com</p>
+            <p style="text-align: center; font-size: 0.9rem; color: var(--text-secondary); margin-top: 15px;">Email: thisgeekrh@gmail.com</p>
         </div>
 
         <div class="card">
