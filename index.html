@@ -268,16 +268,12 @@
         .app-icon {
             width: 100px;
             height: 100px;
-            background: var(--surface-elevated);
             border-radius: 24px;
             margin: 0 auto 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: var(--primary-blue);
+            display: block;
             box-shadow: var(--glass-shadow);
             border: 1px solid var(--border-light);
+            object-fit: cover;
         }
 
         .api-key-steps {
@@ -410,7 +406,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="app-icon">🏠</div>
+            <img src="app-icon.png" alt="WriteAgent App Icon" class="app-icon">
             <h1>WriteAgent Support & Privacy Policy</h1>
             <p>AI-Powered Content Generation for Real Estate Professionals</p>
         </div>
